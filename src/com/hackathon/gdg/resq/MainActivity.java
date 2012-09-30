@@ -20,6 +20,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 public class MainActivity extends Activity {
@@ -30,6 +31,14 @@ public class MainActivity extends Activity {
 	String vfile;
 	private ViewFlipper vf;
 	private float lastX;
+	Boolean isLost;
+	
+	EditText smskeytext;
+	TextView smstextview;
+	EditText emailtext;
+	TextView emailtextview;
+	EditText afterkeytext;
+	TextView aftertext;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
@@ -40,24 +49,68 @@ public class MainActivity extends Activity {
 		getVcardString();
 
 		Button submitbutton = (Button)findViewById(R.id.submit);
-		final EditText smskeytext = (EditText)findViewById(R.id.smskey);
-		final EditText emailtext = (EditText)findViewById(R.id.emailcontacts);
-		
+		smskeytext = (EditText)findViewById(R.id.smskey);
+		smstextview = (TextView)findViewById(R.id.smstext);
+		emailtext = (EditText)findViewById(R.id.emailcontacts);
+		emailtextview = (TextView)findViewById(R.id.emailtext);
+		afterkeytext = (EditText)findViewById(R.id.afterkey);
+		aftertext = (TextView)findViewById(R.id.aftertext);
+
 		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-		
+		final String smsfrompref = prefs.getString("sms",null);
+		String emailfrompref = prefs.getString("email",null);
+		isLost = prefs.getBoolean("isLost",false);
+
+		if(smsfrompref!=null && emailfrompref!=null){
+			smskeytext.setText(smsfrompref);
+			emailtext.setText(emailfrompref);
+		}
+
 		submitbutton.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
-				
-				SharedPreferences.Editor editor = prefs.edit();
-				editor.putString("sms", smskeytext.getText().toString());
-				editor.putString("email", emailtext.getText().toString());
-				editor.commit();
+				if(!isLost){
+					SharedPreferences.Editor editor = prefs.edit();
+					editor.putString("sms", smskeytext.getText().toString());
+					editor.putString("email", emailtext.getText().toString());
+					editor.commit();
+					changeVis(isLost);
+				}else{
+					String checkstring = afterkeytext.getText().toString();
+					if(checkstring.equals(smsfrompref)){
+						isLost = false;
+						changeVis(isLost);
+					}else{
+						isLost = true;
+						changeVis(isLost);
+					}
+				}
 			}
 		}); 
-
+		
+		changeVis(isLost);
+	
 	}
+	
+	private void changeVis(Boolean isLost){
+		if(isLost){
+			smskeytext.setVisibility(View.INVISIBLE);
+			smstextview.setVisibility(View.INVISIBLE);
+			emailtext.setVisibility(View.INVISIBLE);
+			emailtextview.setVisibility(View.INVISIBLE);
+			afterkeytext.setVisibility(View.VISIBLE);
+			aftertext.setVisibility(View.VISIBLE);
+		}else{
+			smskeytext.setVisibility(View.VISIBLE);
+			smstextview.setVisibility(View.VISIBLE);
+			emailtext.setVisibility(View.VISIBLE);
+			emailtextview.setVisibility(View.VISIBLE);
+			afterkeytext.setVisibility(View.INVISIBLE);
+			aftertext.setVisibility(View.INVISIBLE);
+		}
+	}
+	
 	private void getVcardString() {
 		// TODO Auto-generated method stub
 
