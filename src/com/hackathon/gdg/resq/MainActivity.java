@@ -48,7 +48,8 @@ public class MainActivity extends Activity {
 
                 get(cursor);
                 Log.d("Iterator", Integer.toString(i+1));
-               // Log.d("TAG", "Contact "+(i+1)+"VcF String is"+vCard.get(i));
+                Log.d("TAG", "Contact "+(i+1)+"VcF String is"+vCard.get(i));
+                
                 cursor.moveToNext();
             }
 
@@ -86,6 +87,7 @@ public class MainActivity extends Activity {
             FileOutputStream mFileOutputStream = new FileOutputStream(storage_path, false);
             mFileOutputStream.write(vcardstring.toString().getBytes());
             fd.close();
+           // getContentResolver().delete(uri, null, null);
 
         } catch (Exception e1) 
         {
