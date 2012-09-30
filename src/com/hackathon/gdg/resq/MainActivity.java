@@ -32,12 +32,14 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		vf = (ViewFlipper)findViewById(R.id.view_flipper);
+		vfile = "Contacts" + "_" + System.currentTimeMillis()+".vcf";
+		getVcardString();
 
 	}
 	private void getVcardString() {
 		// TODO Auto-generated method stub
 
-		vfile = "Contacts" + "_" + System.currentTimeMillis()+".vcf";
+		
 		vCard = new ArrayList<String>();
 		cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
 		Log.d("Rishabh",Integer.toString(cursor.getCount()));
