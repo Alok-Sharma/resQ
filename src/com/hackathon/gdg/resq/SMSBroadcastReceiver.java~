@@ -1,0 +1,10 @@
+
+
+
+public class SMSBroadcastReceiver extends BroadcastReceiver {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        //intent contains SMS data
+    }
+}
+
