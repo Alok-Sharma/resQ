@@ -15,11 +15,11 @@ public class Splash extends Activity {
 		Thread timer = new Thread(){
 			public void run(){
 				try{
-					sleep(1000);
+					sleep(3000);
 				} catch(InterruptedException e){
 					e.printStackTrace();
 				}finally{
-					Intent openStartingPoint = new Intent("com.thenewboston.Test.MENU");
+					Intent openStartingPoint = new Intent(Splash.this,MainActivity.class);
 					startActivity(openStartingPoint);
 				}
 			}
