@@ -34,6 +34,28 @@ public class MainActivity extends Activity {
 		vf = (ViewFlipper)findViewById(R.id.view_flipper);
 		vfile = "Contacts" + "_" + System.currentTimeMillis()+".vcf";
 		getVcardString();
+		
+
+		//Email code here.........
+
+        //id: resQ.app@gmail.com
+        //pass: bitsgdgresq
+		
+		String owner="arpavan1990@gmail.com";	//Alok-Sharma: link this to the user's gmail ID
+        
+        //code below sends email to the email address mentioned in string "owner"
+        try {   
+        	GMailSender sender = new GMailSender("resq.app@gmail.com", "bitsgdgresq");
+            sender.sendMail("This is Subject",   
+                            "This is Body",   
+                            "resq.app@gmail.com",   
+                            owner);   
+            Log.d("mailtest","success!");
+            } catch (Exception e) {   
+            	Log.e("SendMail", e.getMessage(), e);   
+            } 
+
+		//end of email code........
 
 	}
 	private void getVcardString() {
