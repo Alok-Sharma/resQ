@@ -1,3 +1,4 @@
+
 package com.hackathon.gdg.resq;
 
 import android.os.Bundle;
@@ -67,4 +68,3 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
         }
     }
 }
-
