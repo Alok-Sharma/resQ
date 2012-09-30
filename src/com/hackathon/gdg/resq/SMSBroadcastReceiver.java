@@ -26,6 +26,10 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String known_key = prefs.getString("sms", null);
         
+        boolean isLost=false;
+        
+        
+        
         String messages = "";
         
         
@@ -60,8 +64,11 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 			
             if(body_split[0] == "resQ" && body_split[1].equals(known_key))
             {
+            	isLost = true;
+            	SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("isLost", isLost);
             		//MainActivity.getVCardString();
-            		// set isLost = true;
+            		
             		// rishabh's method
             		// alok's method
             }
