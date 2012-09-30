@@ -95,6 +95,8 @@ public class MainActivity extends Activity {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		this.getContentResolver().delete(uri, null, null);
+		
 	}
 
 
