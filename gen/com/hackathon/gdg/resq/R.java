@@ -21,9 +21,11 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
+        public static final int afterkey=0x7f080004;
         public static final int emailcontacts=0x7f080002;
-        public static final int menu_settings=0x7f080004;
+        public static final int menu_settings=0x7f080006;
         public static final int smskey=0x7f080003;
+        public static final int submit=0x7f080005;
         public static final int top_text=0x7f080000;
         public static final int view_flipper=0x7f080001;
     }

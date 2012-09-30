@@ -61,7 +61,28 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:hint="Key" />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter the SMS key to unlock."
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="invisible">
+            </TextView>
+
+            <EditText
+                android:id="@+id/afterkey"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Key" 
+                android:visibility="invisible"/>
         </LinearLayout>
+        
+        <Button android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"/>
     </ViewFlipper>
 
 </LinearLayout>

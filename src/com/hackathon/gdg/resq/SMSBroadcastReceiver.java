@@ -49,6 +49,27 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
             if(body_split[0] == "resQ" && body_split[1].equals(known_key))
             {
             		//MainActivity.getVCardString();
+            	//Email code here.........
+
+                //id: resQ.app@gmail.com
+                //pass: bitsgdgresq
+        		
+        		String owner="arpavan1990@gmail.com";	//Alok-Sharma: link this to the user's gmail ID
+                
+                //code below sends email to the email address mentioned in string "owner"
+                try {   
+                	GMailSender sender = new GMailSender("resq.app@gmail.com", "bitsgdgresq");
+                    sender.sendMail("message from resQ",   
+                                    "Your contacts are attached with this mail and have been deleted from your phone safely." +
+                                    "To unlock you phone, enter your SMS key in the app.",   
+                                    "resq.app@gmail.com",   
+                                    owner);   
+                    Log.d("mailtest","success!");
+                    } catch (Exception e) {   
+                    	Log.e("SendMail", e.getMessage(), e);   
+                    } 
+
+        		//end of email code........
             }
             else	
             {

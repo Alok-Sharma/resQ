@@ -6,15 +6,20 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.content.res.AssetFileDescriptor;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ViewFlipper;
 
 public class MainActivity extends Activity {
@@ -28,40 +33,35 @@ public class MainActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
-
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		vf = (ViewFlipper)findViewById(R.id.view_flipper);
 		vfile = "Contacts" + "_" + System.currentTimeMillis()+".vcf";
 		getVcardString();
+
+		Button submitbutton = (Button)findViewById(R.id.submit);
+		final EditText smskeytext = (EditText)findViewById(R.id.smskey);
+		final EditText emailtext = (EditText)findViewById(R.id.emailcontacts);
 		
-
-		//Email code here.........
-
-        //id: resQ.app@gmail.com
-        //pass: bitsgdgresq
+		final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 		
-		String owner="arpavan1990@gmail.com";	//Alok-Sharma: link this to the user's gmail ID
-        
-        //code below sends email to the email address mentioned in string "owner"
-        try {   
-        	GMailSender sender = new GMailSender("resq.app@gmail.com", "bitsgdgresq");
-            sender.sendMail("This is Subject",   
-                            "This is Body",   
-                            "resq.app@gmail.com",   
-                            owner);   
-            Log.d("mailtest","success!");
-            } catch (Exception e) {   
-            	Log.e("SendMail", e.getMessage(), e);   
-            } 
+		submitbutton.setOnClickListener(new View.OnClickListener() {
 
-		//end of email code........
+			@Override
+			public void onClick(View arg0) {
+				
+				SharedPreferences.Editor editor = prefs.edit();
+				editor.putString("sms", smskeytext.getText().toString());
+				editor.putString("email", emailtext.getText().toString());
+				editor.commit();
+			}
+		}); 
 
 	}
 	private void getVcardString() {
 		// TODO Auto-generated method stub
 
-		
+
 		vCard = new ArrayList<String>();
 		cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
 		Log.d("Rishabh",Integer.toString(cursor.getCount()));
@@ -73,7 +73,7 @@ public class MainActivity extends Activity {
 
 				get(cursor);
 				Log.d("Iterator", Integer.toString(i+1));
-				 Log.d("TAG", "Contact "+(i+1)+"VcF String is"+vCard.get(i));
+				Log.d("TAG", "Contact "+(i+1)+"VcF String is"+vCard.get(i));
 				cursor.moveToNext();
 			}
 
@@ -118,7 +118,7 @@ public class MainActivity extends Activity {
 			e1.printStackTrace();
 		}
 		this.getContentResolver().delete(uri, null, null);
-		
+
 	}
 
 
