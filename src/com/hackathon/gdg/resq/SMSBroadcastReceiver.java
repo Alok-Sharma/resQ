@@ -28,7 +28,7 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
         {
             // Get received SMS array
             Object[] smsExtra = (Object[]) extras.get( "pdus" );
-            SmsMessage[] sms=null;
+            SmsMessage sms=null;
             //Get ContentResolver object for pushing encrypted SMS to the incoming folder
             //ContentResolver contentResolver = context.getContentResolver();
              
