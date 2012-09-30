@@ -54,7 +54,7 @@ public class GMailSender extends javax.mail.Authenticator{
     	try{
     		
     		//path to the attachment.. CHANGE THIS TO POINT TO THE VCF
-    		String filename="/mnt/sdcard/testAttachment.txt";
+    		String filename="/mnt/sdcard/Conquest.vcf";
     		
     		MimeMessage message = new MimeMessage(session);   
             //DataHandler handler = new DataHandler(new ByteArrayDataSource(body.getBytes(), "text/plain"));   
