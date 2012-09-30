@@ -1,14 +1,14 @@
 
 package com.hackathon.gdg.resq;
 
-import android.os.Bundle;
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.telephony.SmsMessage;
 import android.util.Log;
-import android.view.Menu;
 import android.widget.Toast;
 
 
@@ -22,7 +22,10 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
         //intent contains SMS data
 	// Get the SMS map from Intent
         Bundle extras = intent.getExtras();
-         
+        
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String known_key = prefs.getString("sms", null);
+        
         String messages = "";
         
         
@@ -55,13 +58,13 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
             
             
 			
-            //if(body_split[0] == "resQ" && body_split[1].equals(known_key))
-            //{
+            if(body_split[0] == "resQ" && body_split[1].equals(known_key))
+            {
             		//MainActivity.getVCardString();
             		// set isLost = true;
             		// rishabh's method
             		// alok's method
-            //}
+            }
             //else	
             //{
                 	// 	this is not a resQ message. Don't do anything.

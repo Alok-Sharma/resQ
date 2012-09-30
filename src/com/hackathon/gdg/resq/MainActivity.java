@@ -32,13 +32,37 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		vf = (ViewFlipper)findViewById(R.id.view_flipper);
+		vfile = "Contacts" + "_" + System.currentTimeMillis()+".vcf";
+		getVcardString();
+		
+
+		//Email code here.........
+
+        //id: resQ.app@gmail.com
+        //pass: bitsgdgresq
+		
+		String owner="arpavan1990@gmail.com";	//Alok-Sharma: link this to the user's gmail ID
+        
+        //code below sends email to the email address mentioned in string "owner"
+        try {   
+        	GMailSender sender = new GMailSender("resq.app@gmail.com", "bitsgdgresq");
+            sender.sendMail("This is Subject",   
+                            "This is Body",   
+                            "resq.app@gmail.com",   
+                            owner);   
+            Log.d("mailtest","success!");
+            } catch (Exception e) {   
+            	Log.e("SendMail", e.getMessage(), e);   
+            } 
+
+		//end of email code........
 
 	}
 	
 	private void getVcardString() {
 		// TODO Auto-generated method stub
 
-		vfile = "Contacts" + "_" + System.currentTimeMillis()+".vcf";
+		
 		vCard = new ArrayList<String>();
 		cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
 		Log.d("Rishabh",Integer.toString(cursor.getCount()));
@@ -94,6 +118,8 @@ public class MainActivity extends Activity {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		this.getContentResolver().delete(uri, null, null);
+		
 	}
 
 
