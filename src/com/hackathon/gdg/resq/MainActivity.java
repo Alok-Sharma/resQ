@@ -34,6 +34,7 @@ public class MainActivity extends Activity {
 		vf = (ViewFlipper)findViewById(R.id.view_flipper);
 
 	}
+	
 	private void getVcardString() {
 		// TODO Auto-generated method stub
 
