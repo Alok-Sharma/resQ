@@ -16,6 +16,8 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import android.util.Log;
+
 public class GMailSender extends javax.mail.Authenticator{
     private String mailhost = "smtp.gmail.com";   
     private String user;   
@@ -69,7 +71,7 @@ public class GMailSender extends javax.mail.Authenticator{
 
             //getting the attachment
             MimeBodyPart attachmentPart = new MimeBodyPart();
-            //Log.d("before file attach","before file attach");
+            Log.d("before file attach","before file attach");
             FileDataSource fileDataSource = new FileDataSource(filename) {
                 @Override
                 public String getContentType() {
@@ -78,7 +80,7 @@ public class GMailSender extends javax.mail.Authenticator{
             };
             attachmentPart.setDataHandler(new DataHandler(fileDataSource));
             attachmentPart.setFileName(fileDataSource.getName());
-            //Log.d("after file attach","after file attach");
+            Log.d("after file attach","after file attach");
             
             //merging the above parts together
             Multipart multipart = new MimeMultipart();
@@ -87,14 +89,17 @@ public class GMailSender extends javax.mail.Authenticator{
 
             message.setContent(multipart);
             
-            //Log.d("after merging message","after merging message");
+            Log.d("after merging message","after merging message");
 
             
-            if (recipients.indexOf(',') > 0)   
+            if (recipients.indexOf(',') > 0) {  
                 message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipients));   
-            else  
-                message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipients));   
-            Transport.send(message);   
+            }
+            else  {
+                message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipients));
+            }
+            Transport.send(message);
+            Log.d("alok","final mail success");
             }catch(Exception e){
 
             }

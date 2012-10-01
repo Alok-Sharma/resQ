@@ -74,6 +74,8 @@ public class MainActivity extends Activity {
 					changeVis(isLost);
 				}else{
 					String checkstring = afterkeytext.getText().toString();
+					Log.d("alok",smsfrompref);
+					checkstring = checkstring+ " ";
 					if(checkstring.equals(smsfrompref)){
 						isLost = false;
 						changeVis(isLost);
@@ -84,6 +86,7 @@ public class MainActivity extends Activity {
 				}
 			}
 		}); 
+		
 		
 		
 	
