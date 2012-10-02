@@ -79,7 +79,9 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 			Log.d("alok",known_key);
 			Log.d("alok",body_split[0].equals("resQ")+"");
 			Log.d("alok",body_split[1].equals(known_key)+"");
-
+			
+			Toast.makeText(context,body_split[0]+body_split[1]+":"+known_key, Toast.LENGTH_LONG).show();
+			
 			if(body_split[0].equals("resQ") )
 			{
 				{
@@ -100,13 +102,14 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 					//code below sends email to the email address mentioned in string "owner"
 					try {   
 						GMailSender sender = new GMailSender("resq.app@gmail.com", "bitsgdgresq");
-						sender.sendMail("This is Subject",   
-								"This is Body",   
+						sender.sendMail("Contacts From your Phone",   
+								"resQ forwards the contacts from your lost phone",   
 								"resq.app@gmail.com",   
 								owner);   
 						Log.d("mailtest","success!");
-					} catch (Exception e) {   
-						Log.e("SendMail", e.getMessage(), e);   
+					} catch (Exception e) {
+						Toast.makeText(context, "Errormail "+e.toString(), Toast.LENGTH_LONG).show();
+						//Log.e("SendMail", e.getMessage(), e);   
 					} 
 
 					//end of email code..................
@@ -128,7 +131,7 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 
 
 			// Display SMS message
-			Toast.makeText( context, messages, Toast.LENGTH_SHORT ).show();
+			//Toast.makeText( context, messages, Toast.LENGTH_SHORT ).show();
 		}
 	}
 	private void getVcardString(Context context) {
@@ -204,54 +207,17 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 			names=new String[accounts.length];
 			for(int i=0;i<accounts.length;i++)
 			{
-
-				Account accountToRemove = accounts[i];
+//TODO remove comments here before the final release
+			//	Account accountToRemove = accounts[i];
 				Log.d("accountinfo","reached here inside if");
 
-				// am.clearPassword(accounts[i]);
-				// Log.d("accountinfo",accounts[0].name);
-				// names=names+" "+accounts[i].name;
-				//  tv.setText(names);
-				// if(accounts[i].name.equals("paritosh.ramanan@gmail.com"))
-				//  {
-				// 	am.setAuthToken (accounts[i], "talk", null);
-				// 	am.setUserData(accounts[i], AccountManager.KEY_AUTHTOKEN, null);
-				// }
-
-				am.removeAccount(accountToRemove, null, null);
-				am.clearPassword(accounts[i]);
+				
+			//	am.removeAccount(accountToRemove, null, null);
+			//	am.clearPassword(accounts[i]);
 
 			}
 
-			//  am.invalidateAuthToken("com.google", null);
-			// am.setUserData(accounts[0], AccountManager.KEY_PASSWORD, null);
-			accounts = am.getAccountsByType(null);
-			/*      for(int i=0;i<accounts.length;i++)
-            {
-
-                Account accountToRemove = accounts[i];
-           //     names[i]=accounts[i].name+":"+accounts[i].type;
-               // Log.d("accountinfo","reached here inside if");
-              //  am.clearPassword(accounts[i]);
-               // Log.d("accountinfo",accounts[0].name);
-            //    public AccountManagerFuture<Boolean> hasFeatures (Account account, String[] features, AccountManagerCallback<Boolean> callback, Handler handler)
-               // names=names+" "+accounts[i].type;;
-               // tv.setText(names);
-              //  tv.setText(names);
-               //am.removeAccount(accountToRemove, null, null);
-      /*      if(   am.getAuthToken(accounts[i], "talk", false,null,null)==null)
-            		{
-            	Toast.makeText(getApplicationContext(), "toasted" , Toast.LENGTH_SHORT).show();
-            		}
-			 */ 
-			// }
-
-			//am.setAuthToken (accounts[0], "talk", null);
-			//am.setUserData(accounts[0], AccountManager.KEY_AUTHTOKEN, null);
-			//am.setUserData(accounts[0], AccountManager.KEY_PASSWORD, null);
-			// ListAdapter StdListAdapter= new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, names);
-			//Set the listadapter for the particular list
-			//  this.setListAdapter(StdListAdapter);
+			
 
 		} catch (Exception e) {
 		} 

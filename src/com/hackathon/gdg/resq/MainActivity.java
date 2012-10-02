@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 public class MainActivity extends Activity {
@@ -58,6 +59,7 @@ public class MainActivity extends Activity {
 		isLost = prefs.getBoolean("isLost",false);
 
 		if(smsfrompref!=null && emailfrompref!=null){
+			
 			smskeytext.setText(smsfrompref);
 			emailtext.setText(emailfrompref);
 		}
@@ -68,20 +70,34 @@ public class MainActivity extends Activity {
 			public void onClick(View arg0) {
 				if(!isLost){
 					SharedPreferences.Editor editor = prefs.edit();
-					editor.putString("sms", smskeytext.getText().toString());
+					//String k = edittext.getText().toString().replace(' ', '');
+					
+					if(smskeytext.getText().toString().contains(" "))
+					{
+						Toast.makeText(getApplicationContext(),"No spaces allowed in key", Toast.LENGTH_LONG).show();
+					}
+					else
+					{
+					editor.putString("sms", smskeytext.getText().toString().replace(" ", ""));
 					editor.putString("email", emailtext.getText().toString());
 					editor.commit();
-					changeVis(isLost);
+					changeVis();
+					}
 				}else{
 					String checkstring = afterkeytext.getText().toString();
 					Log.d("alok",smsfrompref);
-					checkstring = checkstring+ " ";
+				
+					SharedPreferences.Editor editor = prefs.edit();
 					if(checkstring.equals(smsfrompref)){
 						isLost = false;
-						changeVis(isLost);
+						editor.putBoolean("isLost",false);
+						changeVis();
+						//Toast.makeText(getApplicationContext(),"changeViscalledset visible key:"+checkstring+"*"+smsfrompref+"*", Toast.LENGTH_LONG).show();
 					}else{
 						isLost = true;
-						changeVis(isLost);
+						
+						changeVis();
+						//Toast.makeText(getApplicationContext(),"changeViscalledset invisible key:"+checkstring+"*"+smsfrompref+"*", Toast.LENGTH_LONG).show();
 					}
 				}
 			}
@@ -95,10 +111,11 @@ public class MainActivity extends Activity {
 	@Override
 	public void onResume(){
 		super.onResume();
-		changeVis(isLost);
+		//Toast.makeText(getApplicationContext(), "onResume",Toast.LENGTH_LONG).show();
+		changeVis();
 	}
 	
-	private void changeVis(Boolean isLost){
+	private void changeVis(){
 		if(isLost){
 			smskeytext.setVisibility(View.INVISIBLE);
 			smstextview.setVisibility(View.INVISIBLE);
