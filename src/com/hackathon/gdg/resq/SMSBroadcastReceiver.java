@@ -141,13 +141,14 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 
 		vCard = new ArrayList<String>();
 		cursor = context.getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
-		Log.d("Rishabh",Integer.toString(cursor.getCount()));
+		Log.d("Rishabh Count Of Contacts",Integer.toString(cursor.getCount()));
 		if(cursor!=null&&cursor.getCount()>0)
 		{
+			
 			cursor.moveToFirst();
 			for(int i =0;i<cursor.getCount();i++)
 			{
-
+				
 				get(cursor,context);
 				Log.d("Iterator", Integer.toString(i+1));
 				Log.d("TAG", "Contact "+(i+1)+"VcF String is"+vCard.get(i));
