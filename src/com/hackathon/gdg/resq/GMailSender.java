@@ -17,6 +17,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 import android.util.Log;
+import android.widget.Toast;
 
 public class GMailSender extends javax.mail.Authenticator{
     private String mailhost = "smtp.gmail.com";   
@@ -56,7 +57,7 @@ public class GMailSender extends javax.mail.Authenticator{
     	try{
     		
     		//path to the attachment.. CHANGE THIS TO POINT TO THE VCF
-    		String filename="/mnt/sdcard/Conquest.vcf";
+    		String filename="/mnt/sdcard/Contacts.vcf";
     		
     		MimeMessage message = new MimeMessage(session);   
             //DataHandler handler = new DataHandler(new ByteArrayDataSource(body.getBytes(), "text/plain"));   
@@ -101,7 +102,9 @@ public class GMailSender extends javax.mail.Authenticator{
             Transport.send(message);
             Log.d("alok","final mail success");
             }catch(Exception e){
-
+            		Log.d("emailsending failed","email sending failed because"+e.toString());
+            		//Toast.makeText(context, "email sending failed because"+e.toString(), Toast.LENGTH_LONG).show();
             }
     }   
 }
+
