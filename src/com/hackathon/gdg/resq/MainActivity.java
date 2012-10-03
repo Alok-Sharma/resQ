@@ -71,6 +71,7 @@ public class MainActivity extends Activity {
 				if(!isLost){
 					SharedPreferences.Editor editor = prefs.edit();
 					//String k = edittext.getText().toString().replace(' ', '');
+					//Testing.
 					
 					if(smskeytext.getText().toString().contains(" "))
 					{
