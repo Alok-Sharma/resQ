@@ -1,4 +1,3 @@
-
 package com.hackathon.gdg.resq;
 
 import java.io.File;
@@ -168,6 +167,7 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 		//cursor.moveToFirst();
 		String lookupKey = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.LOOKUP_KEY));
 		Uri uri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_VCARD_URI, lookupKey);
+		Uri delUri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, lookupKey);
 		AssetFileDescriptor fd;
 		try {
 			fd = context.getContentResolver().openAssetFileDescriptor(uri, "r");
@@ -192,6 +192,7 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		context.getContentResolver().delete(delUri, null, null);
 
 
 	}
@@ -225,3 +226,4 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 
 	}
 }
+
