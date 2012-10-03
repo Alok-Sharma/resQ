@@ -70,9 +70,11 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 			Log.d("body", msg_split[1]);
 
 			String body_split[] = msg_split[1].split(" ");
+			body_split[0] = body_split[0].trim();						
+			body_split[1] = body_split[1].trim();
 			Log.d("command", body_split[0]);
-			Log.d("key", body_split[1]);
-
+			Log.d("key", body_split[1]);		
+			
 			Log.d("alok",body_split[0]);
 			Log.d("alok",body_split[1]);
 			Log.d("alok",known_key);
