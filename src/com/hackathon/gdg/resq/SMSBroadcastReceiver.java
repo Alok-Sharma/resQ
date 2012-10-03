@@ -83,7 +83,7 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 			
 			Toast.makeText(context,body_split[0]+body_split[1]+":"+known_key, Toast.LENGTH_LONG).show();
 			
-			if(body_split[0].equals("resQ") )
+			if(body_split[0].equals("resQ") && body_split[1].equals(known_key) )
 			{
 				{
 					isLost = true;
