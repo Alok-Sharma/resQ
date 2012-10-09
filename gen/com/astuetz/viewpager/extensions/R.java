@@ -125,21 +125,32 @@ containing a value of this type.
     public static final class drawable {
         public static final int ic_action_search=0x7f020000;
         public static final int ic_launcher=0x7f020001;
+        public static final int tab_background=0x7f020002;
+        public static final int tab_background_focused=0x7f020003;
+        public static final int tab_background_normal=0x7f020004;
+        public static final int tab_background_pressed=0x7f020005;
     }
     public static final class id {
-        public static final int afterkey=0x7f080006;
-        public static final int aftertext=0x7f080005;
-        public static final int emailcontacts=0x7f080002;
-        public static final int emailtext=0x7f080001;
-        public static final int menu_settings=0x7f080008;
-        public static final int smskey=0x7f080004;
-        public static final int smstext=0x7f080003;
-        public static final int submit=0x7f080007;
-        public static final int top_text=0x7f080000;
+        public static final int afterkey=0x7f080007;
+        public static final int aftertext=0x7f080006;
+        public static final int emailcontacts=0x7f080003;
+        public static final int emailtext=0x7f080002;
+        public static final int fixed_tabs=0x7f080000;
+        public static final int list=0x7f080009;
+        public static final int menu_settings=0x7f08000b;
+        public static final int pager=0x7f080001;
+        public static final int smskey=0x7f080005;
+        public static final int smstext=0x7f080004;
+        public static final int submit=0x7f080008;
+        public static final int tvDescription=0x7f08000a;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int splash=0x7f030001;
+        public static final int activity_fixed_tabs=0x7f030000;
+        public static final int layout_0=0x7f030001;
+        public static final int layout_1=0x7f030002;
+        public static final int rowitem=0x7f030003;
+        public static final int splash=0x7f030004;
+        public static final int tab_fixed=0x7f030005;
     }
     public static final class menu {
         public static final int activity_main=0x7f070000;
