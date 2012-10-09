@@ -57,6 +57,13 @@ public class MainActivity extends Activity {
 		mFixedTabsAdapter = new FixedTabsAdapter(this);
 		mFixedTabs.setAdapter(mFixedTabsAdapter);
 		mFixedTabs.setViewPager(mPager);
+		
+		/*
+		 *  NOTE: All code for setting texts to edit texts, onClicks to button and 
+		 *  other references to views within the code were required to be shifted to
+		 *  ResQPagerAdapter.java inside the setUpLayout0() method.
+		 */
+		
 	}
 	
 	/*
