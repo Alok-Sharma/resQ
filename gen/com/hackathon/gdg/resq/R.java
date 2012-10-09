@@ -15,22 +15,127 @@ public final class R {
         public static final int out_to_right=0x7f040003;
     }
     public static final class attr {
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int dividerColor=0x7f010007;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int dividerDrawable=0x7f01000a;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int dividerMarginBottom=0x7f010009;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int dividerMarginTop=0x7f010008;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fadeOutDelay=0x7f010000;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fadeOutDuration=0x7f010001;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int lineColor=0x7f010003;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int lineColorSelected=0x7f010004;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int lineHeight=0x7f010005;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int lineHeightSelected=0x7f010006;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int outsideOffset=0x7f01000b;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int textColorSelected=0x7f010002;
     }
     public static final class drawable {
         public static final int ic_action_search=0x7f020000;
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int afterkey=0x7f080007;
-        public static final int aftertext=0x7f080006;
-        public static final int emailcontacts=0x7f080003;
-        public static final int emailtext=0x7f080002;
-        public static final int menu_settings=0x7f080009;
-        public static final int smskey=0x7f080005;
-        public static final int smstext=0x7f080004;
-        public static final int submit=0x7f080008;
+        public static final int afterkey=0x7f080006;
+        public static final int aftertext=0x7f080005;
+        public static final int emailcontacts=0x7f080002;
+        public static final int emailtext=0x7f080001;
+        public static final int menu_settings=0x7f080008;
+        public static final int smskey=0x7f080004;
+        public static final int smstext=0x7f080003;
+        public static final int submit=0x7f080007;
         public static final int top_text=0x7f080000;
-        public static final int view_flipper=0x7f080001;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -48,4 +153,221 @@ public final class R {
     public static final class style {
         public static final int AppTheme=0x7f060000;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a ViewPagerExtensions.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ViewPagerExtensions_dividerColor com.hackathon.gdg.resq:dividerColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewPagerExtensions_dividerDrawable com.hackathon.gdg.resq:dividerDrawable}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewPagerExtensions_dividerMarginBottom com.hackathon.gdg.resq:dividerMarginBottom}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewPagerExtensions_dividerMarginTop com.hackathon.gdg.resq:dividerMarginTop}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewPagerExtensions_fadeOutDelay com.hackathon.gdg.resq:fadeOutDelay}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewPagerExtensions_fadeOutDuration com.hackathon.gdg.resq:fadeOutDuration}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewPagerExtensions_lineColor com.hackathon.gdg.resq:lineColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewPagerExtensions_lineColorSelected com.hackathon.gdg.resq:lineColorSelected}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewPagerExtensions_lineHeight com.hackathon.gdg.resq:lineHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewPagerExtensions_lineHeightSelected com.hackathon.gdg.resq:lineHeightSelected}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewPagerExtensions_outsideOffset com.hackathon.gdg.resq:outsideOffset}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewPagerExtensions_textColorSelected com.hackathon.gdg.resq:textColorSelected}</code></td><td></td></tr>
+           </table>
+           @see #ViewPagerExtensions_dividerColor
+           @see #ViewPagerExtensions_dividerDrawable
+           @see #ViewPagerExtensions_dividerMarginBottom
+           @see #ViewPagerExtensions_dividerMarginTop
+           @see #ViewPagerExtensions_fadeOutDelay
+           @see #ViewPagerExtensions_fadeOutDuration
+           @see #ViewPagerExtensions_lineColor
+           @see #ViewPagerExtensions_lineColorSelected
+           @see #ViewPagerExtensions_lineHeight
+           @see #ViewPagerExtensions_lineHeightSelected
+           @see #ViewPagerExtensions_outsideOffset
+           @see #ViewPagerExtensions_textColorSelected
+         */
+        public static final int[] ViewPagerExtensions = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
+            0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007,
+            0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.hackathon.gdg.resq.R.attr#dividerColor}
+          attribute's value can be found in the {@link #ViewPagerExtensions} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:dividerColor
+        */
+        public static final int ViewPagerExtensions_dividerColor = 7;
+        /**
+          <p>This symbol is the offset where the {@link com.hackathon.gdg.resq.R.attr#dividerDrawable}
+          attribute's value can be found in the {@link #ViewPagerExtensions} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name android:dividerDrawable
+        */
+        public static final int ViewPagerExtensions_dividerDrawable = 10;
+        /**
+          <p>This symbol is the offset where the {@link com.hackathon.gdg.resq.R.attr#dividerMarginBottom}
+          attribute's value can be found in the {@link #ViewPagerExtensions} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:dividerMarginBottom
+        */
+        public static final int ViewPagerExtensions_dividerMarginBottom = 9;
+        /**
+          <p>This symbol is the offset where the {@link com.hackathon.gdg.resq.R.attr#dividerMarginTop}
+          attribute's value can be found in the {@link #ViewPagerExtensions} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:dividerMarginTop
+        */
+        public static final int ViewPagerExtensions_dividerMarginTop = 8;
+        /**
+          <p>This symbol is the offset where the {@link com.hackathon.gdg.resq.R.attr#fadeOutDelay}
+          attribute's value can be found in the {@link #ViewPagerExtensions} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:fadeOutDelay
+        */
+        public static final int ViewPagerExtensions_fadeOutDelay = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.hackathon.gdg.resq.R.attr#fadeOutDuration}
+          attribute's value can be found in the {@link #ViewPagerExtensions} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:fadeOutDuration
+        */
+        public static final int ViewPagerExtensions_fadeOutDuration = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.hackathon.gdg.resq.R.attr#lineColor}
+          attribute's value can be found in the {@link #ViewPagerExtensions} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:lineColor
+        */
+        public static final int ViewPagerExtensions_lineColor = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.hackathon.gdg.resq.R.attr#lineColorSelected}
+          attribute's value can be found in the {@link #ViewPagerExtensions} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:lineColorSelected
+        */
+        public static final int ViewPagerExtensions_lineColorSelected = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.hackathon.gdg.resq.R.attr#lineHeight}
+          attribute's value can be found in the {@link #ViewPagerExtensions} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:lineHeight
+        */
+        public static final int ViewPagerExtensions_lineHeight = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.hackathon.gdg.resq.R.attr#lineHeightSelected}
+          attribute's value can be found in the {@link #ViewPagerExtensions} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:lineHeightSelected
+        */
+        public static final int ViewPagerExtensions_lineHeightSelected = 6;
+        /**
+          <p>This symbol is the offset where the {@link com.hackathon.gdg.resq.R.attr#outsideOffset}
+          attribute's value can be found in the {@link #ViewPagerExtensions} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:outsideOffset
+        */
+        public static final int ViewPagerExtensions_outsideOffset = 11;
+        /**
+          <p>This symbol is the offset where the {@link com.hackathon.gdg.resq.R.attr#textColorSelected}
+          attribute's value can be found in the {@link #ViewPagerExtensions} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:textColorSelected
+        */
+        public static final int ViewPagerExtensions_textColorSelected = 2;
+    };
 }
