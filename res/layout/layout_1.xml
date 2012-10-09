@@ -2,20 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
-    <TextView android:layout_width="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp" >
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Below is the complete log of the Application activity."
-        android:textStyle="bold"/>
-    
+        android:textStyle="bold"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp" />
+
     <ListView
         android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:cacheColorHint="@android:color/transparent"
         android:clickable="false"
-        android:focusableInTouchMode="false"
         android:focusable="false"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
+        android:focusableInTouchMode="false" >
     </ListView>
 
 </LinearLayout>

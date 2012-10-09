@@ -1,12 +1,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp" >
 
     <TextView
         android:id="@+id/emailtext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:text="Enter the email address to receive contacts data"
         android:textSize="14sp"
         android:textStyle="bold" >
@@ -16,6 +20,7 @@
         android:id="@+id/emailcontacts"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:hint="email@example.com"
         android:inputType="textEmailAddress" />
 
@@ -23,6 +28,7 @@
         android:id="@+id/smstext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:text="Enter the SMS key upon which actions will be taken"
         android:textSize="14sp"
         android:textStyle="bold" >
@@ -32,6 +38,7 @@
         android:id="@+id/smskey"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:hint="Key"
         android:inputType="textPassword" />
 
@@ -39,6 +46,7 @@
         android:id="@+id/aftertext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:text="Enter the SMS key to unlock."
         android:textSize="14sp"
         android:textStyle="bold" >
@@ -48,6 +56,7 @@
         android:id="@+id/afterkey"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:hint="Key"
         android:inputType="textPassword" />
 

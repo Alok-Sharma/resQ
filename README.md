@@ -18,6 +18,7 @@
 	Send the message to the lost phone in this format:<br/>
 		"resQ secret_key"
 
+*The [ViewPagerExtensions](https://github.com/astuetz/ViewPagerExtensions) open source library was used in this project.*
 
 
 
