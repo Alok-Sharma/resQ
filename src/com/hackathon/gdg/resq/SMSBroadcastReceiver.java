@@ -66,58 +66,61 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 			}
 			//Log.d("testing:", messages);
 			String msg_split[] = messages.split(":");
-			Log.d("meta", msg_split[0]);
-			Log.d("body", msg_split[1]);
+			Log.d("sms", "meta: "+msg_split[0]);
+			Log.d("sms", "body: "+msg_split[1]);
 
 			String body_split[] = msg_split[1].split(" ");
-			body_split[0] = body_split[0].trim();						
-			body_split[1] = body_split[1].trim();
-			Log.d("command", body_split[0]);
-			Log.d("key", body_split[1]);		
-			
-			Log.d("alok",body_split[0]);
-			Log.d("alok",body_split[1]);
-			Log.d("alok",known_key);
-			Log.d("alok",body_split[0].equals("resQ")+"");
-			Log.d("alok",body_split[1].equals(known_key)+"");
-			
-			Toast.makeText(context,body_split[0]+body_split[1]+":"+known_key, Toast.LENGTH_LONG).show();
-			
+			body_split[0] = body_split[0].trim();
+
+			//If the message did not begin with 'resQ', dont read the body either.
+			if(body_split[0].equals("resQ")){
+				body_split[1] = body_split[1].trim();
+
+				Log.d("sms", "command: "+body_split[0]);
+				Log.d("sms", "key: "+body_split[1]);		
+				Log.d("sms","known key: "+known_key);
+				Log.d("sms","command matches resQ: "+body_split[0].equals("resQ"));
+				Log.d("sms","body matches known key: "+body_split[1].equals(known_key)+"");
+
+				Toast.makeText(context,body_split[0]+body_split[1]+":"+known_key, Toast.LENGTH_LONG).show();
+			}
+
 			if(body_split[0].equals("resQ") && body_split[1].equals(known_key) )
 			{
-				{
-					isLost = true;
-					Log.d("alok",isLost+"");
-					SharedPreferences.Editor editor = prefs.edit();
-					editor.putBoolean("isLost", isLost);
-					editor.commit();
-					Log.d("rishabh", "inside if getVcardgetting called");
-					getVcardString(context);
-					//Email code here.........
+				isLost = true;
+				Log.d("sms","isLost: "+isLost);
+				SharedPreferences.Editor editor = prefs.edit();
+				editor.putBoolean("isLost", isLost);
+				editor.commit();
+				Log.d("rishabh", "inside if getVcardgetting called");
+				getVcardString(context);
+				//Email code here.........
+				//
+				//id: resQ.app@gmail.com
+				//pass: bitsgdgresq
 
-					//id: resQ.app@gmail.com
-					//pass: bitsgdgresq
+				String owner=known_email;
 
-					String owner=known_email;	//Alok-Sharma: link this to the user's gmail ID
+				//code below sends email to the email address mentioned in string "owner"
+				try {   
+					GMailSender sender = new GMailSender("resq.app@gmail.com", "bitsgdgresq");
+					sender.sendMail("Contacts From your Phone",   
+							"resQ forwards the contacts from your lost phone",   
+							"resq.app@gmail.com",   
+							owner);   
+					Log.d("mailtest","success!");
+				} catch (Exception e) {
+					Toast.makeText(context, "Errormail "+e.toString(), Toast.LENGTH_LONG).show();
+					//Log.e("SendMail", e.getMessage(), e);   
+				} 
 
-					//code below sends email to the email address mentioned in string "owner"
-					try {   
-						GMailSender sender = new GMailSender("resq.app@gmail.com", "bitsgdgresq");
-						sender.sendMail("Contacts From your Phone",   
-								"resQ forwards the contacts from your lost phone",   
-								"resq.app@gmail.com",   
-								owner);   
-						Log.d("mailtest","success!");
-					} catch (Exception e) {
-						Toast.makeText(context, "Errormail "+e.toString(), Toast.LENGTH_LONG).show();
-						//Log.e("SendMail", e.getMessage(), e);   
-					} 
-
-					//end of email code..................
-					deleteAccount(context);
-				}
-
+				//end of email code..................
+				deleteAccount(context);
 			}
+			
+			SharedPreferences.Editor editor = prefs.edit();
+			editor.putBoolean("isLost", isLost);
+			editor.commit();
 			//else	
 			//{
 			// 	this is not a resQ message. Don't do anything.
@@ -144,11 +147,11 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 		Log.d("Rishabh Count Of Contacts",Integer.toString(cursor.getCount()));
 		if(cursor!=null&&cursor.getCount()>0)
 		{
-			
+
 			cursor.moveToFirst();
 			for(int i =0;i<cursor.getCount();i++)
 			{
-				
+
 				get(cursor,context);
 				Log.d("Iterator", Integer.toString(i+1));
 				Log.d("TAG", "Contact "+(i+1)+"VcF String is"+vCard.get(i));
@@ -211,17 +214,17 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 			names=new String[accounts.length];
 			for(int i=0;i<accounts.length;i++)
 			{
-//TODO remove comments here before the final release
-			//	Account accountToRemove = accounts[i];
+				//TODO remove comments here before the final release
+				//	Account accountToRemove = accounts[i];
 				Log.d("accountinfo","reached here inside if");
 
-				
-			//	am.removeAccount(accountToRemove, null, null);
-			//	am.clearPassword(accounts[i]);
+
+				//	am.removeAccount(accountToRemove, null, null);
+				//	am.clearPassword(accounts[i]);
 
 			}
 
-			
+
 
 		} catch (Exception e) {
 		} 

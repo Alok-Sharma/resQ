@@ -100,7 +100,7 @@ public class GMailSender extends javax.mail.Authenticator{
                 message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipients));
             }
             Transport.send(message);
-            Log.d("alok","final mail success");
+            Log.d("pavan","final mail success");
             }catch(Exception e){
             		Log.d("emailsending failed","email sending failed because"+e.toString());
             		//Toast.makeText(context, "email sending failed because"+e.toString(), Toast.LENGTH_LONG).show();

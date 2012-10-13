@@ -146,9 +146,8 @@ public class ResQPagerAdapter extends PagerAdapter {
 	 * locked status of phone.
 	 */
 	public void changeVis(){
-		Log.d("alok","in changevis "+isLost);
+		Log.d("visibiility","isLost: "+isLost);
 		if(isLost){
-			smskeytext.setText("hurr");
 			smskeytext.setVisibility(View.GONE);
 			smstextview.setVisibility(View.GONE);
 			emailtext.setVisibility(View.GONE);
@@ -156,7 +155,6 @@ public class ResQPagerAdapter extends PagerAdapter {
 			afterkeytext.setVisibility(View.VISIBLE);
 			aftertext.setVisibility(View.VISIBLE);
 		}else{
-			smskeytext.setText("hurr");
 			smskeytext.setVisibility(View.VISIBLE);
 			smstextview.setVisibility(View.VISIBLE);
 			emailtext.setVisibility(View.VISIBLE);
