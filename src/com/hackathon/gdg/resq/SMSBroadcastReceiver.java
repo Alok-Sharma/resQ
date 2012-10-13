@@ -102,6 +102,7 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 				String owner=known_email;
 
 				//code below sends email to the email address mentioned in string "owner"
+				// Pavan: The below try catch block is causing the problem.
 				try {   
 					GMailSender sender = new GMailSender("resq.app@gmail.com", "bitsgdgresq");
 					sender.sendMail("Contacts From your Phone",   

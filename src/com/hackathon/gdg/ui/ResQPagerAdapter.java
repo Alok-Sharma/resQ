@@ -84,6 +84,7 @@ public class ResQPagerAdapter extends PagerAdapter {
 	 * those as well.
 	 */
 	public void setUpLayout0(View v){
+		
 		submitbutton = (Button)v.findViewById(R.id.submit);
 		smskeytext = (EditText)v.findViewById(R.id.smskey);
 		smstextview = (TextView)v.findViewById(R.id.smstext);
@@ -98,12 +99,14 @@ public class ResQPagerAdapter extends PagerAdapter {
 		String emailfrompref = prefs.getString("email",null);
 		isLost = prefs.getBoolean("isLost",false);
 		
+		
 		if(smsfrompref!=null && emailfrompref!=null){
 			smskeytext.setText(smsfrompref);
 			emailtext.setText(emailfrompref);
 		}
-		
+		Log.d("changevis", "Setup layout 0 called, isLost: "+isLost);
 		changeVis();
+		
 		submitbutton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
@@ -119,20 +122,20 @@ public class ResQPagerAdapter extends PagerAdapter {
 						editor.putString("email", emailtext.getText().toString());
 						editor.commit();
 						Toast.makeText(mContext,"Saved", Toast.LENGTH_SHORT).show();
+						Log.d("changevis", "1");
 						changeVis();
 					}
 				}else{
 					String checkstring = afterkeytext.getText().toString();
 					SharedPreferences.Editor editor = prefs.edit();
 					if(checkstring.equals(smsfrompref) || smsfrompref==null){
-						Log.d("alok","in if");
 						isLost = false;
 						editor.putBoolean("isLost",false);
+						Log.d("changevis", "2");
 						changeVis();
 					}else{
-						Log.d("alok","in else");
-						isLost = true;
-						changeVis();
+						//Nothing changes.
+						Toast.makeText(mContext,"Wrong key", Toast.LENGTH_SHORT).show();
 					}
 					editor.commit();
 				}
@@ -141,7 +144,7 @@ public class ResQPagerAdapter extends PagerAdapter {
 	}
 	
 	/*
-	 * A convenenient method for changing the visibility
+	 * A convenient method for changing the visibility
 	 * of the appropriate button and textviews based upon
 	 * locked status of phone.
 	 */
