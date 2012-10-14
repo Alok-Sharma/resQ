@@ -4,23 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.astuetz.viewpager.extensions.FixedTabsView;
 import com.astuetz.viewpager.extensions.TabsAdapter;
-import com.hackathon.gdg.ui.ResQPagerAdapter;
 import com.hackathon.gdg.ui.FixedTabsAdapter;
+import com.hackathon.gdg.ui.ResQPagerAdapter;
 import com.hackathon.gdg.ui.model;
 
 public class MainActivity extends Activity {

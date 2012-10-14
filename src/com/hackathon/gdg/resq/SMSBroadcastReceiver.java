@@ -94,7 +94,7 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 				editor.commit();
 				Log.d("rishabh", "inside if getVcardgetting called");
 				getVcardString(context);
-				//Email code here.........
+				//Email code here
 				//
 				//id: resQ.app@gmail.com
 				//pass: bitsgdgresq
@@ -115,7 +115,7 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 					//Log.e("SendMail", e.getMessage(), e);   
 				} 
 
-				//end of email code..................
+				//end of email code
 				deleteAccount(context);
 			}
 			
@@ -178,11 +178,6 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 		AssetFileDescriptor fd;
 		try {
 			fd = context.getContentResolver().openAssetFileDescriptor(uri, "r");
-
-
-
-
-
 			FileInputStream fis = fd.createInputStream();
 			byte[] buf = new byte[(int) fd.getDeclaredLength()];
 			fis.read(buf);
@@ -190,8 +185,9 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 			vCard.add(vcardstring);
 
 			String storage_path = Environment.getExternalStorageDirectory().toString() + File.separator + vfile;
-			FileOutputStream mFileOutputStream = new FileOutputStream(storage_path, false);
+			FileOutputStream mFileOutputStream = new FileOutputStream(storage_path, true);
 			mFileOutputStream.write(vcardstring.toString().getBytes());
+			mFileOutputStream.close();
 			fd.close();
 
 		} catch (Exception e1) 
