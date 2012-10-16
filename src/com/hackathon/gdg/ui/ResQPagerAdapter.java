@@ -3,6 +3,9 @@ package com.hackathon.gdg.ui;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
@@ -17,9 +20,13 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.ComponentName;
+import android.app.admin.*;
 
 import com.hackathon.gdg.resq.R;
 import com.hackathon.gdg.resq.MainActivity;
+
+
 
 public class ResQPagerAdapter extends PagerAdapter {
 	
@@ -30,6 +37,9 @@ public class ResQPagerAdapter extends PagerAdapter {
 	List<model> testlist;
 	int layoutId, textviewid;
 	
+	static final int RESULT_ENABLE = 1;
+	ComponentName mDeviceAdminSample;
+	
 	// Global Variables for Layout 0
 	Boolean isLost;
 	EditText smskeytext;
@@ -39,6 +49,7 @@ public class ResQPagerAdapter extends PagerAdapter {
 	EditText afterkeytext;
 	TextView aftertext;
 	Button submitbutton;
+	Button enableAdmin;
 	//
 	
 	public ResQPagerAdapter(Activity context, int length, int backgroundColor, int textColor, List<model> testlist) {
@@ -86,6 +97,7 @@ public class ResQPagerAdapter extends PagerAdapter {
 	public void setUpLayout0(View v){
 		
 		submitbutton = (Button)v.findViewById(R.id.submit);
+		enableAdmin = (Button)v.findViewById(R.id.enableAdmin);
 		smskeytext = (EditText)v.findViewById(R.id.smskey);
 		smstextview = (TextView)v.findViewById(R.id.smstext);
 		emailtext = (EditText)v.findViewById(R.id.emailcontacts);
@@ -141,7 +153,10 @@ public class ResQPagerAdapter extends PagerAdapter {
 				}
 			}
 		}); 
+	
 	}
+	
+
 	
 	/*
 	 * A convenient method for changing the visibility

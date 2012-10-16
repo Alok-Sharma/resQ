@@ -19,7 +19,7 @@ public class Splash extends Activity {
 				} catch(InterruptedException e){
 					e.printStackTrace();
 				}finally{
-					Intent openStartingPoint = new Intent(Splash.this,MainActivity.class);
+					Intent openStartingPoint = new Intent(Splash.this,CheckAdmin.Faceless.class);
 					startActivity(openStartingPoint);
 				}
 			}

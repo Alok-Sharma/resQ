@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USES_POLICY_RESET_PASSWORD"/>
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -21,6 +22,10 @@
         android:theme="@android:style/Theme.Light.NoTitleBar" >
         <activity
             android:name=".MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name=".CheckAdmin$Faceless"
             android:label="@string/title_activity_main" >
         </activity>
         <activity android:name=".Splash" >
@@ -36,6 +41,15 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
+        <receiver android:name=".CheckAdmin"
+ 
+        			android:permission="android.permission.BIND_DEVICE_ADMIN">
+    				<meta-data android:name="android.app.device_admin"
+            					android:resource="@xml/device_admin_sample" />
+    							<intent-filter>
+        							<action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+    							</intent-filter>
+    	</receiver>
     </application>
 
 </manifest>

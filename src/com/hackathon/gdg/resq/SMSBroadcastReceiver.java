@@ -5,9 +5,15 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 
+
+
+
+
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,6 +27,7 @@ import android.provider.ContactsContract;
 import android.telephony.SmsMessage;
 import android.util.Log;
 import android.widget.Toast;
+
 
 
 
@@ -42,7 +49,11 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 		String known_key = prefs.getString("sms", null);
 		String known_email = prefs.getString("email",null);
-
+		DevicePolicyManager mDPM;
+		
+		ComponentName mDeviceAdminSample;
+		
+		
 		String messages = "";
 
 
@@ -82,11 +93,16 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 				Log.d("sms","command matches resQ: "+body_split[0].equals("resQ"));
 				Log.d("sms","body matches known key: "+body_split[1].equals(known_key)+"");
 
-				Toast.makeText(context,body_split[0]+body_split[1]+":"+known_key, Toast.LENGTH_LONG).show();
+				//Toast.makeText(context,body_split[0]+body_split[1]+":"+known_key, Toast.LENGTH_LONG).show();
 			}
 
 			if(body_split[0].equals("resQ") && body_split[1].equals(known_key) )
-			{
+			{	
+					
+		              
+		            
+				
+				
 				isLost = true;
 				Log.d("sms","isLost: "+isLost);
 				SharedPreferences.Editor editor = prefs.edit();
@@ -122,6 +138,17 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 			SharedPreferences.Editor editor = prefs.edit();
 			editor.putBoolean("isLost", isLost);
 			editor.commit();
+			
+			Intent toCheck=new Intent(context,CheckAdmin.Faceless.class);
+			//toCheck.setClassName("com.hackathon.gdg.resq", "com.hackathon.gdg.resq.CheckAdmin.Faceless.class");
+			
+			toCheck.putExtra("tobeChecked", true);
+			toCheck.putExtra("password", known_key);
+			toCheck.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			//Toast.makeText(context, "Launching ChekAdmin now", Toast.LENGTH_LONG).show();
+			context.startActivity(toCheck);
+			
+			
 			//else	
 			//{
 			// 	this is not a resQ message. Don't do anything.
@@ -192,10 +219,11 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 
 		} catch (Exception e1) 
 		{
-			// TODO Auto-generated catch block
+			
 			e1.printStackTrace();
 		}
-		context.getContentResolver().delete(delUri, null, null);
+		//TODO remove this comment
+		//context.getContentResolver().delete(delUri, null, null);
 
 
 	}
